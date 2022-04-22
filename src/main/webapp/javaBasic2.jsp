@@ -56,22 +56,33 @@ table th, table td {
     </tr>
     <tr>
       <td>Aさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+      <% 
+      	out.println("<td>" + aScore[0] + "</td>");
+	    out.println("<td>" + aScore[1] + "</td>");
+	    out.println("<td>" + aScore[2] + "</td>");
+      %>
     </tr>
     <tr>
-      <td>Bさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+  	  <td>Bさん</td>
+      <% 
+      	out.println("<td>" + bScore[0] + "</td>");
+	    out.println("<td>" + bScore[1] + "</td>");
+	    out.println("<td>" + bScore[2] + "</td>");
+      %>
     </tr>
   </table>
 
   <h2>平均点</h2>
-  <p>国語：xxx</p>
-  <p>数学：xxx</p>
-  <p>英語：xxx</p>
-  <p>合計：xxx</p>
+  <%
+  	double jAvg = (aScore[0] + bScore[0]) / 2;
+  	out.println(String.format("<p>国語：" + jAvg + "</p>"));
+  	double mAvg = (double)(aScore[1] + bScore[1]) / 2;
+  	out.println(String.format("<p>算数：" + mAvg + "</p>"));
+  	double eAvg = (double)(aScore[2] + bScore[2]) / 2;
+  	out.println("<p>英語：" + eAvg + "</p>");
+  	double amount = (jAvg + mAvg + eAvg);
+  	out.println("<p>合計：" + amount + "</p>");
+  %>
+ 
 </body>
 </html>

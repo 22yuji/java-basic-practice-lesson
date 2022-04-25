@@ -3,13 +3,31 @@
 
 <%
     // ※必要な処理を実装してください
-
+request.setCharacterEncoding("UTF-8");
+    
     // 入力値取得
-
+	String inputStr = "数値を入力してください。";
+	String numX = request.getParameter("num1");
+	String numY = request.getParameter("num2");
+    if( numX != null || numY != null){
+	int x;
+	int y;
+	
     // 表示するメッセージ用の変数
-
+    
+    if( numX.isEmpty() && numY.isEmpty()){
+    	inputStr = "数値が両方とも未入力です";
+    }else if(numX.isEmpty() || numY.isEmpty()){
+    	inputStr = "数値を入力してください";
+    }else{
+    	x = Integer.parseInt(numX);
+    	y = Integer.parseInt(numY);
+    	inputStr = x + "+" + y + "=" + (x + y);
+    }
     // メッセージ作成
+    
 
+    }
 %>
 
 <!DOCTYPE html>
@@ -30,7 +48,7 @@
 
   <p>
     <!-- メッセージの表示  -->
-
+	<% out.println(inputStr); %>
   </p>
 
   <form action="javaBasicDev3.jsp" method="post">

@@ -4,13 +4,26 @@
     /*
        下記コメントを参考に、必要な処理を記述してください
     */
+    request.setCharacterEncoding("UTF-8");
+	int money = 0;
+	String btn = request.getParameter("btn");
 
     // セッション初期化
     // (セッションに所持金がない、もしくは、リセットボタンを押した際は
     //  所持金の初期値をセッションに保存する)
-
+    if (session.getAttribute("money") == null) {
+        session.setAttribute("money", 150000);
+    }
+    if (btn != null && btn.equals("reset")) {
+        // リセットボタンが押された場合、セッションを破棄
+        session.setAttribute("money", 150000);
+    }else if((int)session.getAttribute("money") <= 0){
+    	session.setAttribute("money", 150000);
+    }
     // 所持金をセッションから取得
-    int money = 150000; //現在は仮で値をセットしている。実際はセッションから取得する
+    money = (int) session.getAttribute("money"); //現在は仮で値をセットしている。実際はセッションから取得する
+    
+    
 %>
 <!DOCTYPE html>
 <html>

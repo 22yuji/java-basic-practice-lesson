@@ -9,6 +9,7 @@ request.setCharacterEncoding("UTF-8");
 	String inputStr = "数値を入力してください。";
 	String numX = request.getParameter("num1");
 	String numY = request.getParameter("num2");
+	String formula = request.getParameter("operator");
     if( numX != null || numY != null){
 	int x;
 	int y;
@@ -22,7 +23,21 @@ request.setCharacterEncoding("UTF-8");
     }else{
     	x = Integer.parseInt(numX);
     	y = Integer.parseInt(numY);
-    	inputStr = x + "+" + y + "=" + (x + y);
+    	switch(formula){
+    		case "add":
+    			inputStr = x + "+" + y + "=" + (x + y);
+    			break;
+    		case "sub":
+    			inputStr = x + "-" + y + "=" + (x - y);
+    			break;
+    		case "mul":
+    			inputStr = x + "×" + y + "=" + (x * y);
+    			break;
+    		case "div":
+    			inputStr = x + "÷" + y + "=" + (x / y);
+    			break;
+    	}
+    	
     }
     // メッセージ作成
     

@@ -15,7 +15,6 @@
         session.setAttribute("money", 150000);
     }
     if (btn != null && btn.equals("reset")) {
-        // リセットボタンが押された場合、セッションを破棄
         session.setAttribute("money", 150000);
     }else if((int)session.getAttribute("money") <= 0){
     	session.setAttribute("money", 150000);

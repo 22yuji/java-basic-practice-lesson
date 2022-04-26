@@ -69,9 +69,6 @@
         	// 購入後の所持金をセッションに保存
         	session.setAttribute("money", newMoney);
         }
-		
-        
-		
     }
 %>
 

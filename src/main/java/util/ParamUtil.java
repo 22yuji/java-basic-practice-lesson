@@ -9,7 +9,6 @@ public class ParamUtil {
      * ポイント計算
      */
 
-
     /**
      * ポイント計算(ランクあり)
      */
